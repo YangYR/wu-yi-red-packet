@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maxmim-scale=1.1,user-scalable=no">
+    <!-- 苹果用户的属性 -->
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <p class="jiqi"><img src="images/jiqi.png" alt=""/></p>
+            <p class="open_time"><img src="images/open_time.png"/></p>
+            <a href="#" class="rules"><img src="images/guize2.png"/></a>
+        </div>
+        <div class="decoration wrap">
+            <p class="huawen"><img src="images/huawen.png" alt=""/></p>
+            <input type="text" value="红包池金额1000元" class="money"/>
+            <p class="double"><img src="images/text2.png"/></p>
+        </div>
+        <span class="hongbao wrap"></span>
+        <ul class="btns wrap">
+            <li class="btn btn1"><a href="#"></a></li>
+            <li class="btn btn2"><a href="#"></a></li>
+            <li class="btn btn3"><a href="#"></a></li>
+        </ul>
+        <ul class="brand wrap">
+            <li><img src="images/dong.png"/></li>
+            <li><img src="images/fang.png" alt=""/></li>
+            <li><img src="images/qi.png" alt=""/></li>
+            <li><img src="images/che.png" alt=""/></li>
+        </ul>
+        <div class="logo wrap"></div>
+    </div>
+    <!--活动规则框弹窗-->
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a href="#" class="close"><span><img src="images/close.png"/></span></a>
+                <h1 class="modal-title">活动规则</h1>
+                <div class="rule-content">
+                    <p>活动时间：</p>
+                    <p>即日起至2017年5月1日16：00<br/>
+                        活动规则说明：</p>
+                    <p><span>集齐“东方汽车”四个字</span>即可获取现金红包,
+                        红包金额随机,数量有限,先到先得,抢完
+                        为止,每人仅限领取1次红包。随着集齐人数
+                        的增加,红包池金额也会发生变化具体如下：
+                        集齐用户达到500人，红包池金额1000元
+                        集齐用户达到1000人，红包池金额2000元
+                        集齐用户达到2000人，红包池金额4000元
+                        集齐用户达到3000人，红包池金额6000元
+                        粉丝专属按钮为关注礼，通过<span>“江苏东方汽
+                        车”（auto_96056）</span>订阅号可获得“车”
+                        字；</p>
+                    <p>呼朋唤友来帮忙集齐其他三个字吧，全部集齐
+                        后可于5月1日上午10:00整点击抢红包按钮，开
+                        自己的幸运红包 <span>（活动于5月1日16:00结束，
+                        结束后将无法领取红包，不要忘记哦！）</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--注册框-->
+    <div class="registerModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a href="#" class="close"><span><img src="images/close.png"/></span></a>
+                <div class="info"><input type="text" value="输入您的姓名"/></div>
+                <div class="info"><input type="text" value="输入您的手机号码"/></div>
+                <p class="tips">为了您能更好的参与活动，请填写正确的 <br/>
+                    姓名以及手机号码。</p>
+                <div class="submit"><input type="submit" value="提交信息"/></div>
+            </div>
+        </div>
+    </div>
+    <!--红包开-->
+    <div class="openBag">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a href="#" class="close"><span><img src="images/close.png"/></span></a>
+                <div class="hongyun"><img src="images/hongyun.png" alt=""/></div>
+                <a href="#" class="open"><img src="images/open.png" alt=""/></a>
+                <div class="modal-logo"><img src="images/logo_x.png" alt=""/></div>
+            </div>
+        </div>
+    </div>
+    <!--红包抢光了-->
+    <div class="bagNone">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a href="#" class="close"><span><img src="images/close.png"/></span></a>
+                <div class="xiaoji"><img src="images/xiaoji.png" alt=""/></div>
+                <a href="#" class="wuwu"><img src="images/wuwu.png" alt=""/></a>
+                <div class="modal-logo"><img src="images/logo_x.png" alt=""/></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

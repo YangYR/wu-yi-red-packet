@@ -1,0 +1,197 @@
+html, body {
+  font-size: 20px; }
+
+body {
+  width: 100%;
+  height: 100%; }
+
+.wrap {
+  width: 12rem;
+  margin: 0 auto;
+  position: relative; }
+
+.container {
+  background: url("images/bg.jpg") no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 1rem 2rem 0 2rem; }
+  .container .jiqi {
+    height: 0.6rem;
+    width: 5.05rem;
+    margin: 0 auto 0.375rem; }
+  .container .open_time {
+    height: 0.5rem;
+    width: 9.55rem;
+    margin: 0 auto; }
+  .container .rules {
+    display: block;
+    position: absolute;
+    width: 1.9rem;
+    height: 1.15rem;
+    top: 0;
+    right: -1.5rem; }
+  .container .decoration {
+    background: url("images/zhuangshi.png") no-repeat;
+    background-size: cover;
+    height: 4.55rem;
+    width: 12.225rem;
+    margin-top: 0.625rem; }
+    .container .decoration .huawen {
+      margin-top: 0.4rem; }
+    .container .decoration .money {
+      width: 11.875rem;
+      height: 2.125rem;
+      font-size: 0.9375rem;
+      color: #6d4d23;
+      background: url("images/dikuang.png") no-repeat;
+      border: none;
+      outline: none;
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 0.375rem; }
+    .container .decoration .double {
+      width: 7.25rem;
+      height: 0.55rem;
+      margin: 0 auto; }
+  .container .hongbao {
+    display: block;
+    background: url("images/hongbao.png") no-repeat;
+    position: absolute;
+    width: 18rem;
+    height: 2.075rem;
+    top: 8.5rem;
+    left: -1rem;
+    z-index: 1;
+    transform: scaleX(0.65); }
+  .container .btns {
+    margin-top: 2.5rem;
+    z-index: 99;
+    position: absolute; }
+    .container .btns .btn {
+      margin-bottom: 1.375rem; }
+      .container .btns .btn a {
+        display: block;
+        width: 12rem;
+        height: 1.75rem; }
+    .container .btns .btn1 a {
+      background: url("images/btn1.png") no-repeat center; }
+    .container .btns .btn2 a {
+      background: url("images/btn2.png") no-repeat center; }
+    .container .btns .btn3 a {
+      background: url("images/btn3.png") no-repeat center; }
+  .container .brand {
+    margin-top: 12.875rem; }
+    .container .brand li {
+      width: 2.1rem;
+      height: 2.1rem;
+      margin-left: 0.75rem;
+      display: inline-block;
+      background: url("images/zidikuang.png") no-repeat; }
+  .container .logo {
+    background: url("images/logo.png") no-repeat;
+    width: 5.75rem;
+    height: 2rem;
+    margin-top: 2rem; }
+
+.modal, .registerModal, .openBag, .bagNone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: none; }
+  .modal .modal-dialog, .registerModal .modal-dialog, .openBag .modal-dialog, .bagNone .modal-dialog {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -5.5rem;
+    width: 11rem;
+    height: 17.75rem;
+    background: url("images/zhu_bg.png") no-repeat;
+    border-radius: 5px; }
+    .modal .modal-dialog .modal-content .close, .registerModal .modal-dialog .modal-content .close, .openBag .modal-dialog .modal-content .close, .bagNone .modal-dialog .modal-content .close {
+      display: block;
+      width: 1.125rem;
+      height: 1.125rem;
+      position: absolute;
+      top: -4rem;
+      left: 11.5rem; }
+    .modal .modal-dialog .modal-content .modal-title, .registerModal .modal-dialog .modal-content .modal-title, .openBag .modal-dialog .modal-content .modal-title, .bagNone .modal-dialog .modal-content .modal-title {
+      color: #A94703;
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem; }
+    .modal .modal-dialog .modal-content .rule-content, .registerModal .modal-dialog .modal-content .rule-content, .openBag .modal-dialog .modal-content .rule-content, .bagNone .modal-dialog .modal-content .rule-content {
+      border: 0.125rem solid #A94703;
+      width: 9.375rem;
+      height: 13.5rem;
+      margin: 0 auto 0.375rem;
+      padding: 0.5rem 0.625rem 1rem 0.25rem; }
+      .modal .modal-dialog .modal-content .rule-content p, .registerModal .modal-dialog .modal-content .rule-content p, .openBag .modal-dialog .modal-content .rule-content p, .bagNone .modal-dialog .modal-content .rule-content p {
+        font-size: 0.425rem;
+        color: #A94703;
+        line-height: 0.65rem; }
+        .modal .modal-dialog .modal-content .rule-content p span, .registerModal .modal-dialog .modal-content .rule-content p span, .openBag .modal-dialog .modal-content .rule-content p span, .bagNone .modal-dialog .modal-content .rule-content p span {
+          color: #13A903; }
+
+.registerModal .modal-dialog .modal-content {
+  margin-top: 3.875rem; }
+  .registerModal .modal-dialog .modal-content .info {
+    margin: 0 auto;
+    width: 8.375rem; }
+    .registerModal .modal-dialog .modal-content .info input {
+      width: 8.375rem;
+      height: 1.125rem;
+      border: 0.075rem solid #A94703;
+      margin-bottom: 1rem;
+      background: transparent;
+      color: #A94703;
+      font-size: 0.5rem;
+      padding-left: 0.125rem; }
+  .registerModal .modal-dialog .modal-content .tips {
+    font-size: 0.4rem;
+    color: #A94703;
+    padding-left: 1.125rem; }
+  .registerModal .modal-dialog .modal-content .submit {
+    margin: 5.75rem auto 0;
+    width: 5rem; }
+    .registerModal .modal-dialog .modal-content .submit input {
+      width: 5rem;
+      height: 1.25rem;
+      line-height: 1.25rem;
+      text-align: center;
+      background: #A94703;
+      color: #000;
+      border-radius: 5px;
+      border: none;
+      font-size: 0.75rem; }
+
+.openBag .modal-dialog .modal-content .hongyun, .bagNone .modal-dialog .modal-content .hongyun {
+  width: 7rem;
+  height: 2.65rem;
+  margin: 2.75rem auto 4.875rem; }
+.openBag .modal-dialog .modal-content .xiaoji, .bagNone .modal-dialog .modal-content .xiaoji {
+  width: 5rem;
+  height: 5.5rem;
+  margin: 3.5rem auto 1.625rem; }
+.openBag .modal-dialog .modal-content .open, .bagNone .modal-dialog .modal-content .open {
+  display: block;
+  width: 2.925rem;
+  height: 2.925rem;
+  margin: 0 auto 2.25rem; }
+.openBag .modal-dialog .modal-content .wuwu, .bagNone .modal-dialog .modal-content .wuwu {
+  display: block;
+  width: 7.5rem;
+  height: 0.625rem;
+  margin: 0 auto 4.125rem; }
+.openBag .modal-dialog .modal-content .modal-logo, .bagNone .modal-dialog .modal-content .modal-logo {
+  width: 2.95rem;
+  height: 0.75rem;
+  margin: 0 auto; }
+
+/*# sourceMappingURL=index.css.map */
